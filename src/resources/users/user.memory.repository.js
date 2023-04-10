@@ -31,12 +31,12 @@ const updateById = async ({ id, firstName, lastName, login, phoneNumber }) => {
   if (userPosition === -1) return null;
 
   const oldUser = Users[userPosition];
-  const newUser = { ...oldUser, name, login, password };
+  const newUser = { ...oldUser, firstName, lastName, login, phoneNumber };
 
   Users.splice(userPosition, 1, newUser);
 };
 
-module.exports = {
+export {
   Users,
   getAll,
   getUserById,
