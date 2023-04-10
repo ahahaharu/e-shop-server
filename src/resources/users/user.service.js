@@ -14,10 +14,16 @@ const deleteById = async (id) => {
 const updateById = ({ id, firstName, lastName, login, password, phoneNumber }) => {
   usersRepo.updateById({ id, firstName, lastName, login, phoneNumber });
 }
+
+const getUserOrders = (id) => {
+    return ordersRepo.getAll.filter(order => order.clientId === id);
+ }
+
 export { 
   getAll,
   getById,
   createUser,
   deleteById,
-  updateById
+  updateById,
+  getUserOrders
 };
