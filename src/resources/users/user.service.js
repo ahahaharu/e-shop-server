@@ -5,10 +5,8 @@ const getById = (id) => usersRepo.getUserById(id);
 const createUser = ({ id, firstName, lastName, login, password, phoneNumber }) => {
   usersRepo.createUser({ id, firstName, lastName, login, password, phoneNumber });
 }
-const deleteById = async (id) => {
-  for(let order of ordersRepo.Orders){
-    ordersRepo.deleteById(order.id, id);
-  }
+const deleteById = async (userId) => {
+  for(let order of getUserOrders(userId)) ordersRepo.deleteById(order.id);
   usersRepo.deleteById(id);
 }
 const updateById = ({ id, firstName, lastName, login, password, phoneNumber }) => {
