@@ -15,8 +15,8 @@ const createOrder = async ({ id, clientId, productList, isDelivered }) => {
   return order;
 };
 
-const deleteById = async (id) => {
-  const orderPosition = Orders.findIndex((order) => id === order.id);
+const deleteById = async (orderId) => {
+  const orderPosition = Orders.findIndex((order) => orderId === order.id);
 
   if (orderPosition === -1) return null;
 
