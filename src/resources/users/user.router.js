@@ -16,7 +16,7 @@ router.route('/').get(
 
 router.route('/').post(
   catchErrors(async (req, res) => {
-    const { name, login, password } = req.body;
+    const { firstName, lastName, login, phoneNumber } = req.body;
 
     const user = await usersService.createUser({ name, login, password });
 
@@ -49,7 +49,7 @@ router.route('/:id').get(
 router.route('/:id').put(
   catchErrors(async (req, res) => {
     const { id } = req.params;
-    const { name, login, password } = req.body;
+    const { firstName, lastName, login, phoneNumber } = req.body;
 
     const user = await usersService.updateById({ id, name, login, password });
 
