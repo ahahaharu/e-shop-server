@@ -25,13 +25,13 @@ const deleteById = async (id) => {
   Users.splice(userPosition, 1);
 };
 
-const updateById = async ({ id, firstName, lastName, login, phoneNumber }) => {
+const updateById = async ({ id, firstName, lastName, login, password, phoneNumber }) => {
   const userPosition = Users.findIndex((user) => id === user.id);
 
   if (userPosition === -1) return null;
 
   const oldUser = Users[userPosition];
-  const newUser = { ...oldUser, firstName, lastName, login, phoneNumber };
+  const newUser = { ...oldUser, firstName, lastName, login, password, phoneNumber };
 
   Users.splice(userPosition, 1, newUser);
 };
