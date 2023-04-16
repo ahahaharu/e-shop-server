@@ -1,4 +1,4 @@
-import Product from './product.model';
+import Product from './product.model.js';
 
 const Products = [
   new Product({title: 'Nigger', price: 1, description: 'black', count: 5}),

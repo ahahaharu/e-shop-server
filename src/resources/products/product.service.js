@@ -1,5 +1,5 @@
-import * as productsRepo from './product.memory.repository';
-import * as ordersRepo from '../orders/order.memory.repository';
+import * as productsRepo from './product.memory.repository.js';
+import * as ordersRepo from '../orders/order.memory.repository.js';
 
 const getAll = () => productsRepo.getAll();
 const getProductById = (id) => productsRepo.getProductById(id);

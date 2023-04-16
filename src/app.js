@@ -18,6 +18,6 @@ app.use('/', (req, res, next) => {
 
 app.use('/users', userRouter);
 app.use('/products', productRouter);
-app.user('/orders', orderRouter);
+app.use('/orders', orderRouter);
 
 export default app;

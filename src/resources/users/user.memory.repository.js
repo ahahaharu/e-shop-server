@@ -1,4 +1,4 @@
-import User from './user.model';
+import User from './user.model.js';
 
 const Users = [
   new User({ firstName: 'Marat', lastName: 'Pereverzev', login: 'maratik', password: 'Huo', phoneNumber: '+375444444444'}),

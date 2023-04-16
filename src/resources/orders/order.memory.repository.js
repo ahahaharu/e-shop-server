@@ -1,8 +1,8 @@
-import Order from './order.model';
+import Order from './order.model.js';
 
 const Orders = [
-  new Order({ clientId: '1', productList: [], isDelivered = false}),
-  new Order({ clientId: '2', productList: [], isDelivered = false}),
+  new Order({ clientId: '1', productList: [], isDelivered: false}),
+  new Order({ clientId: '2', productList: [], isDelivered: false}),
 ];
 
 const getAll = async () => Orders;
