@@ -10,7 +10,7 @@ const router = Router();
 
 router.route('/').get(
   catchErrors(async (req, res) => {
-    const order = await ordersService.getAll();
+    const orders = await ordersService.getAll();
 
     res.json(orders.map(Order.toResponse));
   })
