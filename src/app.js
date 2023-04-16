@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 
 import userRouter from './resources/users/user.router.js';
 import productRouter from "./resources/products/product.router.js";
@@ -19,5 +20,7 @@ app.use('/', (req, res, next) => {
 app.use('/users', userRouter);
 app.use('/products', productRouter);
 app.use('/orders', orderRouter);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 export default app;
