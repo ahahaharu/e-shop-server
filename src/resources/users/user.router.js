@@ -17,12 +17,10 @@ router.route('/').get(
 router.route('/').post(
   catchErrors(async (req, res) => {
     const { id, firstName, lastName, login, password, phoneNumber} = req.body;
-    console.log(req);
-
-    console.log({ id, firstName, lastName, login, phoneNumber });
 
     const user = await usersService.createUser({ id, firstName, lastName, login, password, phoneNumber});
 
+    console.log(user);
     if (user) {
       res.status(StatusCodes.CREATED).json(User.toResponse(user));
     } else {

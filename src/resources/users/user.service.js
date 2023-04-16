@@ -2,8 +2,9 @@ import * as usersRepo from './user.memory.repository.js';
 import * as ordersRepo from '../orders/order.memory.repository.js';
 const getAll = () => usersRepo.getAll();
 const getById = (id) => usersRepo.getUserById(id);
-const createUser = ({ id, firstName, lastName, login, password, phoneNumber }) => {
-  usersRepo.createUser({ id, firstName, lastName, login, password, phoneNumber });
+const createUser = async ({ id, firstName, lastName, login, password, phoneNumber }) => {
+  const user = usersRepo.createUser({ id, firstName, lastName, login, password, phoneNumber });
+  return user;
 }
 const deleteById = async (userId) => {
   for(let order of getUserOrders(userId)) ordersRepo.deleteById(order.id);

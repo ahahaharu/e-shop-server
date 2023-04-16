@@ -11,8 +11,8 @@ const getAll = async () => Users;
 
 const getUserById = async (id) => Users.find((user) => id === user.id);
 
-const createUser = async ({ id, firstName, lastName, login, phoneNumber }) => {
-  const user = new User({ id, firstName, lastName, login, phoneNumber });
+const createUser = async ({ id, firstName, lastName, login, password, phoneNumber }) => {
+  const user = new User({ id, firstName, lastName, login, password, phoneNumber });
   Users.push(user);
   return user;
 };
