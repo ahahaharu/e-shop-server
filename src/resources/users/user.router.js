@@ -3,6 +3,7 @@ import User from './user.model.js';
 import * as usersService from './user.service.js';
 import catchErrors from '../../common/catchErrors.js';
 import { StatusCodes } from "http-status-codes"
+import { getUserById } from './user.memory.repository.js';
 
 const router = Router();
 
@@ -67,14 +68,14 @@ router.route('/:id').put(
 router.route('/:id').delete(
   catchErrors(async (req, res) => {
     const { id } = req.params;
-
-    const user = await usersService.deleteById(id);
-
-    if (!user) {
+    console.log(usersService.getById(id))
+    const user = await usersService.getById(id)
+    if (user === undefined) {
       return res
         .status(StatusCodes.NOT_FOUND)
         .json({ code: 'USER_NOT_FOUND', msg: 'User not found' });
     }
+    await usersService.deleteById(id);
 
     return res
       .status(StatusCodes.NO_CONTENT)

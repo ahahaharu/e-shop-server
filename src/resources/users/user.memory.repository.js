@@ -1,7 +1,7 @@
 import User from './user.model.js';
 
 const Users = [
-  new User({ firstName: 'Marat', lastName: 'Pereverzev', login: 'maratik', password: 'Huo', phoneNumber: '+375444444444'}),
+  new User({ id: "1", firstName: 'Marat', lastName: 'Pereverzev', login: 'maratik', password: 'Huo', phoneNumber: '+375444444444'}),
   new User({ firstName: 'Andrey', lastName: 'Bogdanovich', login: 'andrusha', password: 'ahahahaharu', phoneNumber: '+375333333333' }),
   new User({ firstName: 'Vanya', lastName: 'Moroz', login: 'vanusha', password: 'PhoeniXYZ', phoneNumber: '+3755555555' }),
   new User({ firstName: 'Egor', lastName: 'Dovnar', login: 'egorik', password: 'tomasShelby', phoneNumber: '+375222222222' })

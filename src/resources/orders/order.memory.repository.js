@@ -2,7 +2,7 @@ import Order from './order.model.js';
 
 const Orders = [
   new Order({ clientId: '1', productList: [], isDelivered: false}),
-  new Order({ clientId: '2', productList: [], isDelivered: false}),
+  new Order({ clientId: '51397140-ebd5-49ab-9b06-b3b03faadc21', productList: [], isDelivered: false}),
 ];
 
 const getAll = async () => Orders;

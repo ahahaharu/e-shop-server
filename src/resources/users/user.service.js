@@ -6,17 +6,38 @@ const createUser = async ({ id, firstName, lastName, login, password, phoneNumbe
   const user = usersRepo.createUser({ id, firstName, lastName, login, password, phoneNumber });
   return user;
 }
+
+const getUserOrders = (id) => {
+  return ordersRepo.getAll().then((ordersPromise) => {
+    const orders = ordersPromise;
+    let filtOrder = [];
+    for (let orderObj of orders) {
+      if (orderObj.clientId === id) {
+        filtOrder.push(orderObj)
+      } 
+    }
+    return filtOrder;
+  });
+}
+
+
 const deleteById = async (userId) => {
-  for(let order of getUserOrders(userId)) ordersRepo.deleteById(order.id);
-  usersRepo.deleteById(id);
+  getUserOrders(userId)
+  .then((filtOrder) => {
+    for(let order of filtOrder) {
+    ordersRepo.deleteById(order.id); }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  
+  usersRepo.deleteById(userId);
 }
 const updateById = ({ id, firstName, lastName, login, password, phoneNumber }) => {
   usersRepo.updateById({ id, firstName, lastName, login, phoneNumber });
 }
 
-const getUserOrders = (id) => {
-    return ordersRepo.getAll.filter(order => order.clientId === id);
- }
+
 
 export { 
   getAll,
