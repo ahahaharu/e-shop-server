@@ -20,7 +20,10 @@ const deleteById = async (orderId) => {
 
   if (orderPosition === -1) return null;
 
+  const order = getOrderById(orderId);
+
   Orders.splice(orderPosition, 1);
+  return order;
 };
 
 const updateById = async ({ id, clientId, productList, isDelivered }) => {

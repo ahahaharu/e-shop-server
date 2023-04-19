@@ -8,7 +8,8 @@ const createOrder = ({ id, clientId, productList, isDelivered }) => {
   return order;
 }
 const deleteById = async (orderId) => {
-  ordersRepo.deleteById(orderId);
+  const order = ordersRepo.deleteById(orderId);
+  return order;
 }
 const updateById = ({ id, clientId, productList, isDelivered }) => {
   const order = ordersRepo.updateById({ id, clientId, productList, isDelivered });

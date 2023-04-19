@@ -72,14 +72,14 @@ router.route('/:id').delete(
     const order = await ordersService.deleteById(id);
 
     if (!order) {
-      return res
+      res
         .status(StatusCodes.NOT_FOUND)
         .json({ code: 'ORDER_NOT_FOUND', msg: 'Order not found' });
+    } else{
+      res
+        .status(StatusCodes.OK)
+        .json({ code: 'ORDER_DELETED', msg: 'The order has been deleted' });
     }
-
-    return res
-      .status(StatusCodes.NO_CONTENT)
-      .json({ code: 'ORDER_DELETED', msg: 'The order has been deleted' });
   })
 );
 
