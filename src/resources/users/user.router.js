@@ -54,9 +54,9 @@ router.route('/:id').put(
 
     const user = await usersService.getById(id)
     if (!(user === undefined)){
-      res.status(StatusCodes.OK).json(User.toResponse(user));
-    } else {
       await usersService.updateById({ id, firstName, lastName, login, password, phoneNumber });
+      res.status(StatusCodes.OK).json(await usersService.getById(id));
+    } else {
       res
         .status(StatusCodes.NOT_FOUND)
         .json({ code: 'USER_NOT_FOUND', msg: 'User not found' });
