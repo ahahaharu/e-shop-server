@@ -36,7 +36,7 @@ router.route('/:id').get(
   catchErrors(async (req, res) => {
     const { id } = req.params;
 
-    const product = await productsService.getById(id);
+    const product = await productsService.getProductById(id);
 
     if (product) {
       res.json(Product.toResponse(product));
