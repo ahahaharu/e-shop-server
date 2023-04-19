@@ -78,7 +78,7 @@ router.route('/:id').delete(
     }
 
     return res
-      .status(StatusCodes.NO_CONTENT)
+      .status(StatusCodes.OK)
       .json({ code: 'PRODUCT_DELETED', msg: 'The product has been deleted' });
   })
 );

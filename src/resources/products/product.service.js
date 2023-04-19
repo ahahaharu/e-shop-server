@@ -4,7 +4,10 @@ import * as ordersRepo from '../orders/order.memory.repository.js';
 const getAll = () => productsRepo.getAll();
 const getProductById = (id) => productsRepo.getProductById(id);
 const createProduct = ({id, title, price, description, count}) => productsRepo.createProduct({id, title, price, description, count});
-const deleteById = (id) => productsRepo.deleteById(id);
+const deleteById = (id) => {
+  const product = productsRepo.deleteById(id);
+  return product;
+}
 const updateById = (id) => {
   const product = productsRepo.updateById(id);
   return product;

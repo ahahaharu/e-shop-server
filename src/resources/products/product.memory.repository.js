@@ -20,7 +20,10 @@ const deleteById = async (id) => {
 
   if (productPosition === -1) return null;
 
+  const product = getProductById(id);
+
   Products.splice(productPosition, 1);
+  return product;
 };
 
 const updateById = async ({id, title, price, description, count}) => {
