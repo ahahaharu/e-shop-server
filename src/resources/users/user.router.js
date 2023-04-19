@@ -21,7 +21,6 @@ router.route('/').post(
 
     const user = await usersService.createUser({ id, firstName, lastName, login, password, phoneNumber});
 
-    console.log(user);
     if (user) {
       res.status(StatusCodes.CREATED).json(User.toResponse(user));
     } else {
@@ -51,13 +50,13 @@ router.route('/:id').get(
 router.route('/:id').put(
   catchErrors(async (req, res) => {
     const { id } = req.params;
-    const { firstName, lastName, login, phoneNumber } = req.body;
+    const { firstName, lastName, login, password, phoneNumber } = req.body;
 
-    const user = await usersService.updateById({ id, firstName, lastName, login, password, phoneNumber });
-
-    if (user) {
+    const user = await usersService.getById(id)
+    if (!(user === undefined)){
       res.status(StatusCodes.OK).json(User.toResponse(user));
     } else {
+      await usersService.updateById({ id, firstName, lastName, login, password, phoneNumber });
       res
         .status(StatusCodes.NOT_FOUND)
         .json({ code: 'USER_NOT_FOUND', msg: 'User not found' });
@@ -68,7 +67,6 @@ router.route('/:id').put(
 router.route('/:id').delete(
   catchErrors(async (req, res) => {
     const { id } = req.params;
-    console.log(usersService.getById(id))
     const user = await usersService.getById(id)
     if (user === undefined) {
       return res
@@ -76,7 +74,6 @@ router.route('/:id').delete(
         .json({ code: 'USER_NOT_FOUND', msg: 'User not found' });
     }
     await usersService.deleteById(id);
-
     return res
       .status(StatusCodes.NO_CONTENT)
       .json({ code: 'USER_DELETED', msg: 'The user has been deleted' });

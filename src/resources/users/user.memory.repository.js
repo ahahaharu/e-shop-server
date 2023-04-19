@@ -29,7 +29,6 @@ const updateById = async ({ id, firstName, lastName, login, password, phoneNumbe
   const userPosition = Users.findIndex((user) => id === user.id);
 
   if (userPosition === -1) return null;
-
   const oldUser = Users[userPosition];
   const newUser = { ...oldUser, firstName, lastName, login, password, phoneNumber };
 
