@@ -4,7 +4,8 @@ import * as usersRepo from '../users/user.memory.repository.js';
 const getAll = () => ordersRepo.getAll();
 const getById = (id) => ordersRepo.getOrderById(id);
 const createOrder = ({ id, clientId, productList, isDelivered }) => {
-  ordersRepo.createOrder({ id, clientId, productList, isDelivered });
+  const order = ordersRepo.createOrder({ id, clientId, productList, isDelivered });
+  return order;
 }
 const deleteById = async (orderId) => {
   ordersRepo.deleteById(orderId);
