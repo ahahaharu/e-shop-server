@@ -69,13 +69,13 @@ router.route('/:id').delete(
     const { id } = req.params;
     const user = await usersService.getById(id)
     if (user === undefined) {
-      return res
+      res
         .status(StatusCodes.NOT_FOUND)
         .json({ code: 'USER_NOT_FOUND', msg: 'User not found' });
     }
     await usersService.deleteById(id);
-    return res
-      .status(StatusCodes.NO_CONTENT)
+    res
+      .status(StatusCodes.OK)
       .json({ code: 'USER_DELETED', msg: 'The user has been deleted' });
   })
 );
