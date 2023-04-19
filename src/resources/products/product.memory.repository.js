@@ -31,7 +31,8 @@ const updateById = async ({id, title, price, description, count}) => {
   const oldProduct = Products[productPosition];
   const newProduct = { ...oldProduct, title, price, description, count };
 
-  Users.splice(productPosition, 1, newProduct);
+  Products.splice(productPosition, 1, newProduct);
+  return newProduct;
 };
 
 export {

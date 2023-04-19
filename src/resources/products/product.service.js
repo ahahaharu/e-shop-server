@@ -5,7 +5,10 @@ const getAll = () => productsRepo.getAll();
 const getProductById = (id) => productsRepo.getProductById(id);
 const createProduct = ({id, title, price, description, count}) => productsRepo.createProduct({id, title, price, description, count});
 const deleteById = (id) => productsRepo.deleteById(id);
-const updateById = (id) => productsRepo.updateById(id);
+const updateById = (id) => {
+  const product = productsRepo.updateById(id);
+  return product;
+}
 const getProductOrders = (productId) => {
     return ordersRepo.getAll.filter(order => order.productList.includes(productId));
 }
