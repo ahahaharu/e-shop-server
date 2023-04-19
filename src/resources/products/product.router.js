@@ -18,9 +18,9 @@ router.route('/').get(
 
 router.route('/').post(
   catchErrors(async (req, res) => {
-    const { title, price, description, count } = req.body;
+    const { id, title, price, description, count } = req.body;
 
-    const product = await productsService.createProduct({ title, price, description, count });
+    const product = await productsService.createProduct({ id, title, price, description, count });
 
     if (product) {
       res.status(StatusCodes.CREATED).json(Product.toResponse(product));
