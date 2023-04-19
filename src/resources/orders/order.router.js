@@ -53,7 +53,7 @@ router.route('/:id').put(
     const { id } = req.params;
     const { clientId, productList, isDelivered} = req.body;
 
-    const order = await ordersService.updateById({ clientId, productList, isDelivered});
+    const order = await ordersService.updateById({ id, clientId, productList, isDelivered});
 
     if (order) {
       res.status(StatusCodes.OK).json(Order.toResponse(order));

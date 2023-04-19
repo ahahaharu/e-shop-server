@@ -32,6 +32,7 @@ const updateById = async ({ id, clientId, productList, isDelivered }) => {
   const newOrder = { ...oldOrder, clientId, productList, isDelivered };
 
   Orders.splice(orderPosition, 1, newOrder);
+  return newOrder;
 };
 
 export {

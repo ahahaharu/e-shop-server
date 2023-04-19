@@ -10,7 +10,8 @@ const deleteById = async (orderId) => {
   ordersRepo.deleteById(orderId);
 }
 const updateById = ({ id, clientId, productList, isDelivered }) => {
-  ordersRepo.updateById({ id, clientId, productList, isDelivered });
+  const order = ordersRepo.updateById({ id, clientId, productList, isDelivered });
+  return order;
 }
 export { 
   getAll,
